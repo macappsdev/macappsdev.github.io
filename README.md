@@ -1,2 +1,2 @@
 # macappsdev.github.io
-writer app home
+SoleWriter app home
