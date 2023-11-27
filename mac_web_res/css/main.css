@@ -1,0 +1,703 @@
+html, body, div, ul, a, dt, dd, table, tr, td
+{
+    margin:0;
+    padding:0;
+}
+
+body
+{
+    font-size: 1.0em;
+    font-family:Verdana, 'Open Sans', sans-serif, "Helvetica Neue", Arial, Helvetica;
+    color:#797979;
+    background-color:#f0f0f0;
+}
+
+.container
+{
+    width:1180px;
+    height:100%;
+    margin:0 auto;
+}
+
+.header
+{
+    width:100%;
+    height:50px;
+    margin:0 auto;
+    overflow:hidden;
+}
+
+.header_content {    
+    width: 100%;
+    height: 100%;
+    margin:0 auto; 
+}
+
+#logo_box
+{
+    float:left;
+    margin-left:10px;
+    margin-top:13px;
+}
+
+/* tab_menu (nav) related stuff */
+#tab_menu
+{
+}
+
+#nav
+{
+    float:right;
+    margin-right: 10px;
+    border:0px solid yellow;
+}
+
+#nav a
+{
+    cursor:pointer;
+    float:left;
+    height:25px;
+    line-height:25px;
+    margin-top:13px;
+    font-size:16px;
+    color:#797979;
+    text-align:center;
+    border-right-color: #8c8c8c;
+    border-right-style: dotted;
+}
+
+#nav a:hover
+{
+    color:#000;
+}
+
+/* normal state*/
+#nav_a_1 { float:left; padding:0px 10px; border-right-width:1px; }
+#nav_a_2 { float:left; padding:0px 10px; border-right-width:1px; }
+#nav_a_3 { float:left; padding:0px 10px; border-right-width:1px; }
+#nav_a_4 { float:left; padding:0px 10px; border-right-width:0px; }
+
+/* selected state*/
+.nav_a_active
+{
+    color:#000 !important;
+}
+
+/* main content div */
+.main
+{
+    width:100%;
+    height:100%;
+    margin-top: 0px;
+    margin-bottom: 20px;    /* The offset to the browser bottom */
+    margin-left: auto;
+    margin-right: auto;
+    
+    /* The border stroke */
+    border-width: 1px;
+    border-style: solid;
+    border-color: #e0e0e0;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    
+    /* background color */
+    background-color:#ffffff;
+}
+
+#nav_c
+{
+    width:100%;
+    height:100%;
+    margin: 0px;            /* This must be 0, so the nav content section is close to the footer.*/
+    list-style-type: none;
+    
+    /* Need sync with .footer if you modify the following items */
+    /*
+    border-top-width: 1px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 0px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    border-style: solid;
+    border-color: #cccccc;
+    */
+}
+
+/*
+#nav_c a
+{
+    color:#666;
+    padding:0 5px;
+}
+*/
+
+/* nav content items*/
+#nav_c_1
+{
+    width:100%;
+    height:100%;
+    font-family:'Open Sans', Verdana;
+}
+
+#nav_c_2
+{
+}
+
+#nav_c_3
+{
+    
+}
+
+#nav_c_4
+{
+}
+
+/* Home page */
+/* Slide show*/
+#slideshow_container
+{
+    width:100%;
+    height:450px;              /* make sure this value is sync with slideshow_item_container's height */
+}
+
+#myCarousel
+{
+    width: 100%;
+    height: 100%;
+}
+
+#slideshow_button_prev table
+{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+#slideshow_button_next table
+{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+#slideshow_button_prev:hover, #slideshow_button_next:hover
+{
+    cursor: pointer;
+}
+
+.slideshow_item_container
+{
+    width: 100%;
+    height: 450px;            /* make sure this value is sync with slideshow_container's height */
+    margin: 0px;
+    padding: 0px;
+}
+
+.slideshow_item_table
+{
+    width: 100%;
+    height: 100%;
+    color: #ffffff;
+    font-size: medium;
+}
+
+.slideshow_item_table a
+{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.slideshow_item_table a:hover
+{
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.slideshow_item_icon_td
+{
+    width: 44%;
+    height: 100%;
+}
+
+.slideshow_item_icon_box
+{
+    text-align: right;
+    padding-right: 66px;    /* the distance between icon and texts */
+    padding-top: 0px;       /* icon offset down */
+}
+
+.slideshow_item_icon_box img
+{
+    width: 264px;
+    height: 264px;
+}
+
+.slideshow_item_texts_td
+{
+    height: 100%;
+}
+
+.slideshow_item_texts_box
+{
+    text-align: left;
+    padding-bottom: 15px;    /* Means: download button offset to the dots control will be the same as the app name offset to the top of the container */
+}
+
+.slideshow_item_texts_box h1
+{
+    margin: 0px;
+}
+
+.slideshow_item_texts_box h2
+{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-size: large;
+    font-weight: normal;
+}
+
+.slideshow_item_texts_box p
+{
+    width: 75%;
+    /* height: 160px; */
+    margin-top: 0px;
+    margin-bottom: 35px;
+}
+
+.slideshow_item_download
+{
+    margin-right: 35px;
+}
+
+.slideshow_item_download img
+{
+    width: 196px;
+    height: 43px;
+}
+
+.slideshow_item_readmore
+{
+}
+
+.slideshow_item_readmore img
+{
+    width: 160px;
+    height: 43px;
+}
+
+/* app showcases section  */
+.app_showcase_container
+{
+    width: 100%;
+}
+
+.app_showcase_header
+{
+    width: 100%;
+    height: 80px;
+    margin-top: 60px;
+    margin-bottom: 0px;
+    text-align: center;
+    font-weight: normal;
+    font-size: xx-large;
+}
+
+.app_showcase_content
+{
+    width: 960px;       /* the apps showcase's width */
+    margin-left: 120px;  /* the apps showcase's left offset */
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+/* The space between showcase and the footer */
+.app_showcase_bottom_space
+{
+    height: 100px;
+}
+
+.app_showcase_box_table
+{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.app_showcase_box_table_td
+{
+    width: 33%;
+}
+
+/* Each item */
+.app_showcase_item_table
+{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.app_showcase_item_table a
+{
+    text-decoration:none;
+    color:#797979;
+}
+
+.app_showcase_item_table a:hover
+{
+    text-decoration:underline;
+}
+
+.app_showcase_item_table_icon_td
+{
+    width: 130px;
+    height: 130px;
+}
+
+.app_showcase_item_icon
+{
+    margin: 0 auto;
+}
+
+.app_showcase_item_icon img
+{
+    width: 90px;
+    height: 90px;
+}
+
+.app_showcase_item_texts
+{
+    margin: 0 auto;
+}
+
+.app_showcase_item_texts h1
+{
+    text-align: left;
+    margin: 0px;
+    padding: 0px;
+    font-size: medium;
+    font-weight: normal;
+}
+
+.app_showcase_item_texts p
+{
+    text-align: left;
+    margin: 0px;
+    padding: 0px;
+    font-size: small;
+}
+
+/* all products page */
+.all_products_container
+{
+}
+
+.all_products_container a
+{
+    text-decoration:none;
+    color:#797979;
+}
+
+.all_products_container a:hover
+{
+    text-decoration: underline;
+    color: #000;
+}
+
+.product_tile 
+{
+    padding: 35px 0px;
+    border-style:none;
+    border-bottom:1px solid #e2e2e2;
+}
+
+.product_info_table
+{
+    width: 100%;
+    height: 100%;
+    border: 0px dashed blue;
+}
+
+.product_icon {
+    display:block;
+    width:180px;
+    height:128px;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size:100px 100px;
+    border:0px solid red;
+}
+
+.product_title
+{
+    font-size:22px;
+}
+
+.product_info_table p
+{
+    /* margin-left:5px;*/
+    font-size:16px;
+    border:0px solid red;
+}
+
+.product_download_appstore
+{
+    /*
+    display:block;
+    width: 0px;
+    height: 0px;
+    */    /* Because in Windows 10 website, we dont use this in "All Product" tab. */
+
+    width: 200px;
+    height: 54px;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size:155px 38px;
+    background-image: url(../img/download_on_the_mas.png);
+    border:0px solid red;
+}
+
+.product_more_info_button
+{
+    display:block;
+    width: 200px;
+    height: 54px;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size:152px 38px;
+    background-image: url(../img/btn_readmore_black.png);
+    border:0px solid blue;
+}
+
+/* About page */
+.about_contact_content_container
+{
+    width:100%;
+    font-size:16px;
+    line-height:1.5em;
+}
+
+.about_contact_content_container a
+{
+    text-decoration:none;
+    color:#797979;
+}
+
+.about_contact_content_container a:hover
+{
+    color: #000;
+    text-decoration: underline;
+}
+
+
+/* footer div*/
+.footer
+{
+    width:100%;
+    height:150px;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: small;
+    color:#ffffff;
+    background-color:#333333;
+    
+    /* Need sync with #nav_c if you modify the following items */
+    /*
+    border-top-width: 0px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-style: solid;
+    border-color: #cccccc;
+    */
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    
+}
+
+/* Footer */
+.footer a 
+{
+    color:#ffffff;
+    text-decoration:none;
+}
+
+.footer a:hover
+{
+    color:#ffffff;
+    text-decoration: underline;
+}
+
+.footer_content 
+{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    border: 0px solid red;
+}
+
+.footer_table
+{
+    width: auto;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.footer_table td
+{
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.footer_table_about_td
+{
+}
+
+.footer_table_feedback_td
+{
+}
+
+.footer_table_policy_td
+{
+}
+
+.footer_table_copyright_td
+{
+}
+
+.footer_table h1
+{
+    margin: 0px;
+    padding-bottom: 6px;
+    font-size: small;
+    font-weight: bold;
+}
+
+.footer_table p
+{
+    margin: 0px;
+    padding: 0px;
+}
+
+.footer_disclaimer
+{
+    width: 100%;
+    margin: 0 auto 20px auto;
+    text-align: center;
+    color: #9b9b9b;
+}
+
+.footer_disclaimer p
+{
+    margin: 0;
+    padding: 10px 10px 20px 10px;
+}
+
+/* common used class */
+.common_nav_container
+{
+    width:100%;
+    height:100%;
+    padding:0px;
+    margin:0 auto;
+}
+
+.common_content_container
+{
+    width:1024px;
+    margin:0 auto;
+    padding-top:50px;
+    padding-bottom:50px;
+    border:0px solid red;
+}
+
+
+.common_content_container h1 {
+    font-size:22px;
+    font-weight:500;
+}
+
+.common_content_container .strong_line {
+    width:100%;
+    height:4px;
+    margin-bottom: 10px;
+    background-color:#d2d2d2;
+}
+
+.common_compact_title {
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* image transform */
+.common_img_trans:hover
+{
+    -ms-transform: scale(1.2, 1.2);     /* IE 9 */
+    -moz-transform: scale(1.2, 1.2);    /* Firefox */
+    -webkit-transform: scale(1.2, 1.2); /* Safari 和 Chrome */
+    -o-transform: scale(1.2, 1.2);      /* Opera */
+    transform: scale(1.2, 1.2);         /* Standard scale */
+}
+
+/* used by privacy policy */
+.pp_main
+{
+    width:100%;
+    height:100%;
+    margin-top: 0px;
+    margin-bottom: 40px;    /* The offset to the browser bottom */
+    margin-left: auto;
+    margin-right: auto;
+    
+    color: #343434;
+    
+    /* The border stroke */
+    border-width: 1px;
+    border-style: solid;
+    border-color: #e0e0e0;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    
+    /* background color */
+    background-color:#ffffff;
+}
+
+.pp_main_contents
+{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.pp_main_contents h1
+{
+    text-align: center;
+    margin: 40px;
+}
+
+.pp_main_contents h2
+{
+    font-weight: normal;
+    font-size: xx-large;
+    margin-bottom: 5px;
+}
+
+.pp_main_contents h3
+{
+    font-weight: normal;
+    font-size: large;
+    margin-bottom: 5px;
+}
+
+.pp_main_contents p
+{
+    color: #545454;
+    margin-bottom: 5px;
+}
+
+.pp_main_contents ul
+{
+    margin-left: 2em;
+}
+

@@ -1,10 +1,322 @@
-<!doctype html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="en">
 <head>
+    <title>SoleOffice App Team</title>
 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="SoleOffice App Team is a team of professional IT addicts specializing in macOS software development.">
+    <meta name="keywords" content="soleoffice,macOS,uwp,app">
+    <meta name="copyright" content="Copyright (c) 2024 SoleOffice App Team. All rights reserved.">
+    
+    <!-- link icons -->
+    <link rel="icon"          href="mac_web_res/img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="mac_web_res/img/favicon.ico" type="image/x-icon">
+    
+    <!-- link css -->
+    <!-- slider(carousel) -->
+    <link href="mac_web_res/slider_carousel_337/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="mac_web_res/css/main.css" rel="stylesheet" type="text/css"> <!-- my css must link after 3rdlibs, so mine works -->
+    <link href="mac_web_res/css/thanks.css" rel="stylesheet" type="text/css"> <!-- my css must link after 3rdlibs, so mine works -->
+    
+    <!-- javascript libs -->
+    <script src="mac_web_res/jslibs/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script src="mac_web_res/slider_carousel_337/js/bootstrap.min.js" type="text/javascript"></script>
+    
+    <!-- my javascript -->
+    <script src="mac_web_res/myjs/myjs.js" type="text/javascript"></script>
+    <script src="mac_web_res/myjs/tabmenu.js" type="text/javascript"></script>
+    <script src="mac_web_res/data/apps_info.js" type="text/javascript"></script>
+    
+    <!-- Set the initial selected tab here. -->
+    <script type="text/javascript">
+        /* Suppress some warnings for jshint, which affected all scripts in this file. */
+        /* jshint eqeqeq: false, evil: true */
+        /* globals $, changeTab, getMaxSlideshowAppsCount, getAllAppsInfoArray, generateAllAppsHtmlForProducts, generateAllAppsHtmlForAppShowcase, generateAppHtmlForSlideshowWithIndex */
+
+        $(document).ready(function(){
+            "use strict";
+
+            // setup click events for tabs (i use jQuery to set the onClick event for each tab of tab-menu)
+            $("#nav_a_1").click( function(){ changeTab(1); } );
+            $("#nav_a_2").click( function(){ changeTab(2); } );
+            $("#nav_a_3").click( function(){ changeTab(3); } );
+            $("#nav_a_4").click( function(){ changeTab(4); } );
+            
+            // initial tab
+            changeTab(1);
+        });
+    </script>
+    
 </head>
 
 <body>
-    <p>If you have any questions, please feel free to contact us at <a href="mailto:macdev@foxmail.com">macdev@foxmail.com</a></p>
+
+<!-- Begin the page -->
+<div class="container">
+    <div class="header">
+        <div class="header_content">
+            <div id="logo_box">
+                <a href="#"><img src="mac_web_res/img/logo_team.png" alt="SoleOffice App Team"></a>
+            </div>
+            
+            <!-- tab menu -->
+            <div id="tab_menu">
+                <div id="nav">
+                    <a id="nav_a_1">Home</a>
+                    <a id="nav_a_2">All Products</a>
+                    <a id="nav_a_3">About Us</a>
+                    <a id="nav_a_4">Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="main">
+           <ul id="nav_c">
+            <!-- Home Page -->
+            <li>
+                <div id="nav_c_1" class="common_nav_container">
+                    
+                    <!-- slidershow section. -->
+                    <div id="slideshow_container">
+                        <!-- { data-ride="carousel" } means: Autoplay, {data-interval="2000"} means: 2 seconds delay -->
+                        <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
+                            <!-- slider(Carousel) dots indicators -->
+                            <script type="text/javascript">
+                                var ss_html = '';
+                                ss_html += '    <ol class="carousel-indicators">';
+                                ss_html += '        <!-- How many apps shown on slideshow section. -->';
+                                ss_html += '        <!-- slideshow section. Create some li tags here -->';
+
+                                        var slideshowAppCount = getMaxSlideshowAppsCount();
+                                        for (var idx = 0; idx < slideshowAppCount; idx++)
+                                        {
+                                            if (idx == 0) {
+                                                ss_html += '<li data-target="#myCarousel" data-slide-to="' + idx.toString() + '" class="active"></li>';
+                                            }
+                                            else {
+                                                ss_html += '<li data-target="#myCarousel" data-slide-to="' + idx.toString() + '"></li>';
+                                            }
+                                        }
+
+                                ss_html += '    </ol>';
+
+                                document.write(ss_html);
+                            </script>
+
+                            <!-- slider(Carousel) items -->
+                            <div class="carousel-inner">
+                                <script type="text/javascript">
+                                    /* Current I only want to show some apps for top slider section. */
+                                    var allAppsArray = getAllAppsInfoArray();
+                                    var neededCount = getMaxSlideshowAppsCount();
+
+                                    /* Compose htmls for sliders */
+                                    for (var idx = 0; idx < neededCount; idx++)
+                                    {
+                                        var oneAppInfo = allAppsArray[idx];
+                                        var oneSlideBgColor = oneAppInfo.getSlideBgColor();
+                                        var htmlSlideshowPage = generateAppHtmlForSlideshowWithIndex(idx, oneSlideBgColor);
+                                        if (idx == 0) {
+                                            document.write('<div class="item active">' + htmlSlideshowPage + "</div>");
+                                        }
+                                        else {
+                                            document.write('<div class="item">' + htmlSlideshowPage + "</div>");
+                                        }
+                                    }
+                                </script>
+                            </div>
+                            
+                            <!-- slider(Carousel) Previous & Next buttons. -->
+                            <!--
+                            <div id="slideshow_button_prev" class="carousel-control left" data-target="#myCarousel" data-slide="prev">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <a href="#"><img src="mac_web_res/img/ss_btn_prev.png" alt=""></a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <div id="slideshow_button_next" class="carousel-control right" data-target="#myCarousel" data-slide="next">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <a href="#"><img src="mac_web_res/img/ss_btn_next.png" alt=""></a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            -->
+                            <!-- End of slider(Carousel) Previous & Next buttons. -->
+                            
+                        </div>
+
+                    </div>  <!-- End of slidershow section. -->
+                    
+                    <!-- app show case section. -->
+                    <div class="app_showcase_container">
+                        <div class="app_showcase_header">
+                            <p>Amazing apps for your macOS</p>
+                        </div>
+                        
+                        <div class="app_showcase_content">
+                            <script type="text/javascript">
+                                var htmlCode = generateAllAppsHtmlForAppShowcase();
+                                document.write(htmlCode);
+                            </script>
+                        </div>
+                        
+                        <div class="app_showcase_bottom_space">
+                        </div>
+                    </div>
+                    
+                </div>
+            </li>
+            <!-- End of Home Page -->
+
+
+            <!-- All Products Page: OK -->
+            <li>
+                <div id="nav_c_2" class="common_nav_container">
+                    <div class="common_content_container">
+                        <h1>All Products</h1>
+                        <div class="strong_line"></div>
+                        
+                        <div class="all_products_container">
+                            <script type="text/javascript">
+                                var htmlCode = generateAllAppsHtmlForProducts();
+                                document.write(htmlCode);
+                            </script>
+                        </div>
+                        
+                    </div>
+                </div>
+            </li>
+            <!-- End of All Products Page -->
+
+
+            <!-- About Us Page: OK -->
+            <li>
+                <div id="nav_c_3" class="common_nav_container">
+                    <div class="common_content_container">
+                        <h1>About Us</h1>
+                        <div class="strong_line"></div>
+                        <div class="about_contact_content_container">
+                            <p>SoleOffice App Team is a team of professional IT addicts specializing in macOS software development.</p>
+
+                            <br/>
+                            <p class="common_compact_title">Email:</p>
+                            <a href="mailto:macdev@foxmail.com">macdev@foxmail.com</a>
+                        </div>
+                    </div>
+                </div>
+            </li>
+            <!-- End of About Us Page -->
+
+
+            <!-- Contact Page: OK -->
+            <li>
+                <div id="nav_c_4" class="common_nav_container">
+                    <div class="common_content_container">
+                        <h1>Contact</h1>
+                        <div class="strong_line"></div>
+                        <div class="about_contact_content_container">
+                            <p>Please feel free to contact us. Your feedback is always appreciated.</p>
+                            <p class="common_compact_title">Product Feedback:</p>
+                            <a href="mailto:macdev@foxmail.com">macdev@foxmail.com</a>
+                            
+                            <br/>
+                            <br/>
+                            <p class="common_compact_title">Marketing Promotions &amp; Support:</p>
+                            <a href="mailto:macdev@foxmail.com">macdev@foxmail.com</a>
+                        </div>
+                     </div>
+                </div>
+            </li>
+            <!-- End of Contact Page -->
+
+        </ul>
+        
+        
+        <!-- Footer section -->
+        <div class="footer">
+            <div class="footer_content">
+                <table class="footer_table" border="0" cellspacing="0">
+                    <tr>
+                        <td class="footer_table_about_td">
+                            <h1>About Us</h1>
+                            <p>Founded in 2012, SoleOffice App Team</p>
+                            <p>is all about creating incredible apps.</p>
+                        </td>
+
+                        <td class="footer_table_feedback_td">
+                            <h1>Contact Us</h1>
+                            <p>Product Feedback:</p>
+                            <a href="mailto:macdev@foxmail.com">macdev@foxmail.com</a>
+                        </td>
+
+                        <td class="footer_table_policy_td">
+                            <h1>Policy</h1>
+                            <a href="p.html">Privacy Policy</a>
+                            <p>&nbsp;</p>
+                        </td>
+                        
+                        <td class="footer_table_copyright_td">
+                            <h1>Acknowledgments</h1>
+                            <p><a class="thanks-text" href="javascript:void(0)" data-toggle="modal" data-target="#modal-thanks">Acknowledgments</a></p>
+                            <p>&nbsp;</p>
+
+                            <!--
+                            <p>Copyright (c) 2012-2024 SoleOffice App Team.</p>
+                            <p>All rights reserved.</p>
+                            -->
+
+                            <!-- Thanks Modal Dialog -->
+                            <div class="modal fade thanks-text" id="modal-thanks" tabindex="-1" role="dialog" aria-labelledby="thanks-dialog-title" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <h1 class="modal-title" id="thanks-dialog-title">Acknowledgments</h1>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div id="thanks-body">
+                                            </div>
+                                        </div>
+
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of Thanks Modal Dialog -->
+
+                        </td>
+
+                    </tr>
+                </table>
+            </div>
+
+            <div class="footer_disclaimer">
+                <p><small>Disclaimer: Apple, Mac, and macOS are registered trademarks or trademarks of Apple Inc. in the U.S. and/or other countries. SoleOffice App Team has no affiliation with Apple Inc.</small></p>
+            </div>
+        </div>
+        <!-- End of footer section -->
+    </div>
+
+</div>
+
+<!-- Load thanks html file into its dialog -->
+<script>
+    $("#thanks-body").load("about/thanks.html");
+</script>
+
+<!-- Release v2.0 on 2022.08.21 (Removed all apps) -->
+
 </body>
 </html>
