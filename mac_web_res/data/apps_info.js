@@ -196,7 +196,7 @@ function getAllAppsInfoArray()
         solewriter.masUrl       = "https://apple.co/46zdRCT";
         solewriter.intro        = "Full-featured word processor";
         solewriter.desc         = "SoleWriter is a cute, quick, fully functional and easy-to-use Word Processor for your daily work and personal needs.";
-        solewriter.srcUrl       = "SoleWriter.zip";
+        solewriter.srcUrl       = "https://soleoffice.com/opensource/zips/SoleWriter.zip";
 
         // Add app to array
         allAppsArray.push(solewriter);        // solewriter
@@ -209,7 +209,7 @@ function getAllAppsInfoArray()
         video_player.masUrl       = "https://apple.co/42ii6Ck";
         video_player.intro        = "Feature-rich media player designed for your Mac";
         video_player.desc         = "The ultimate media player that can handle almost any file type, including 4K/1080P/720P HD videos and normal/lossless audio.";
-        video_player.srcUrl       = "FullVideoPlayer.zip";
+        video_player.srcUrl       = "https://soleoffice.com/opensource/zips/FullVideoPlayer.zip";
 
         // Add to array
         allAppsArray.push(video_player);
