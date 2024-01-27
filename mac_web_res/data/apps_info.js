@@ -65,7 +65,8 @@ function AppItemInfo()
     this.intro        = "";     // A very short line words that descript this app 
     this.desc         = "";     // App Description
     this.slideBgColor = "";     // A color(CSS Color) used when this app is displayed on the top slideshow section. 
-    
+    this.srcUrl       = "";     // Source code URL
+
     // Instance Methods
     this.getAppName = function() {
         return this.appName;
@@ -141,26 +142,37 @@ function AppItemInfo()
     this.getSlideBgColor = function() {
         return this.slideBgColor;
     };
+
+    this.getSrcUrl = function() {
+        return this.srcUrl;
+    };
 }
 
 /*
     Return an array that contains all the apps (instances of AppItemInfo)
 
     *** Note ***:
-    1. masURL property is made from apple's link maker: 
-    https://linkmaker.itunes.apple.com/en-us
-    
+    1. masURL property is made from apple's link maker:
+        * [Deprecated] Link maker: `https://linkmaker.itunes.apple.com/en-us`
+        * App Store Marketing Tools: `https://tools.applemediaservices.com/app-store`
+
     2. download url is composed from here:
     https://developer.apple.com/library/content/qa/qa1633/_index.html
     
     Template:
-    var  = new AppItemInfo();
-    .appName = 
-    .masUrl  = 
-    .intro   = "A greate app for your Mac";
-    .desc    = 
-    allAppsArray.push(
+    ```
+        var  = new AppItemInfo();
+        .slideBgColor = "#000000";
+        .appName      = "App Name";
+        .iconBaseName = "app_icon";
+        .masUrl       = "https://apple.co/XXXXXXX";
+        .intro        = "short intro";
+        .desc         = "long description";
+        .srcUrl       = "";
 
+        // allAppsArray.push();
+    
+    ```
 */
 function getAllAppsInfoArray()
 {
@@ -184,15 +196,29 @@ function getAllAppsInfoArray()
         solewriter.masUrl       = "https://apple.co/46zdRCT";
         solewriter.intro        = "Full-featured word processor";
         solewriter.desc         = "SoleWriter is a cute, quick, fully functional and easy-to-use Word Processor for your daily work and personal needs.";
+        solewriter.srcUrl       = "SoleWriter.zip";
 
         // Add app to array
         allAppsArray.push(solewriter);        // solewriter
+
+        // Full Video Player app
+        var video_player = new AppItemInfo();
+        video_player.slideBgColor = "#303030";
+        video_player.appName      = "Full Video Player";
+        video_player.iconBaseName = "video_player_icon";
+        video_player.masUrl       = "https://apple.co/42ii6Ck";
+        video_player.intro        = "Feature-rich media player designed for your Mac";
+        video_player.desc         = "The ultimate media player that can handle almost any file type, including 4K/1080P/720P HD videos and normal/lossless audio.";
+        video_player.srcUrl       = "FullVideoPlayer.zip";
+
+        // Add to array
+        allAppsArray.push(video_player);
 
         // After add all the apps data we need to save to the cache.
         // Save to the cache
         gCachedAllAppsArray = allAppsArray;
     }
-    
+
     // here the cache should not be empty
     // return this array
     return gCachedAllAppsArray;
@@ -315,7 +341,11 @@ function generateAllAppsHtmlForProducts()
         var appIconName       = appItemInfo.getSmallAppIconName();
         var appDownUrl        = appItemInfo.getDownloadOnMASUrl();
         var appMoreInfoUrl    = appItemInfo.getMoreInfoUrl();
-        
+
+        // Generate the src link if needed
+        var appSrcUrl         = appItemInfo.getSrcUrl();
+        var srcElementHtmlStr = appSrcUrl === '' ? '' : '<a id="product_source_code_button" href="' + appSrcUrl + '" target="_blank">Source code</a>';
+
         // Genereate the html code here.
         var appIconStyle    = 'background-size:128px 128px; background-repeat:no-repeat; background-position: center; background-image:url(mac_web_res/data/' + appIconName + ');';
         
@@ -332,6 +362,7 @@ function generateAllAppsHtmlForProducts()
         htmlCode += '        <td>';
         htmlCode += '            <a href="' + appDownUrl + '" class="product_download_appstore" target="_blank"></a>';
         htmlCode += '            <a href="' + appMoreInfoUrl + '" class="product_more_info_button" target="_blank"></a>';
+        htmlCode +=              srcElementHtmlStr;
         htmlCode += '        </td>';
         htmlCode += '      </tr>';
         htmlCode += '    </table>';
@@ -403,7 +434,10 @@ function generateOneAppHtmlForAppShowcaseWithAppItemInfo(appItemInfo)
     // Genereate the html code here.
     var appIconAddress    = 'mac_web_res/data/' + appIconName;
         
-    
+    // Generate the src link if needed
+    var appSrcUrl         = appItemInfo.getSrcUrl();
+    var srcElementHtmlStr = appSrcUrl === '' ? '' : '<a class="source_code_button" href="' + appSrcUrl + '" target="_blank">Source code</a>';
+
     // return value;
     var htmlString = "";
     htmlString    += '<table class="app_showcase_item_table" border="0" cellspacing="0">';
@@ -417,6 +451,7 @@ function generateOneAppHtmlForAppShowcaseWithAppItemInfo(appItemInfo)
     htmlString    += '    <div class="app_showcase_item_texts">';
     htmlString    += '      <a target="_blank" href="' + appMoreInfoUrl + '"><h1>' + appName + '</h1></a>';
     htmlString    += '      <p>' + appIntro + '</p>';
+    htmlString    +=        srcElementHtmlStr;
     htmlString    += '    </div>';
     htmlString    += '  </td>';
     htmlString    += '</tr>';
