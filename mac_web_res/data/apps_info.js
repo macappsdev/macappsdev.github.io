@@ -189,26 +189,39 @@ function getAllAppsInfoArray()
         var allAppsArray = [];
 
         // Init apps data array.
+        // 1. Docx Editor app
         var solewriter = new AppItemInfo();
         solewriter.slideBgColor = "#9DCFFF";
-        solewriter.appName      = "SoleWriter";
+        solewriter.appName      = "Docx Editor";
         solewriter.iconBaseName = "sole_writer_icon";
         solewriter.masUrl       = "https://apple.co/46zdRCT";
-        solewriter.intro        = "Full-featured word processor";
-        solewriter.desc         = "SoleWriter is a cute, quick, fully functional and easy-to-use Word Processor for your daily work and personal needs.";
-        solewriter.srcUrl       = "https://soleoffice.com/opensource/zips/SoleWriter.zip";
+        solewriter.intro        = "Full-featured word processor for Mac";
+        solewriter.desc         = "Docx Editor is a word processor for Mac that is based on OpenOffice and LibreOffice. Docx Editor is a cute, quick, fully functional and easy-to-use Word Processor.";
+        solewriter.srcUrl       = "https://soleoffice.com/opensource/zips/DocxEditor.zip";
 
         // Add app to array
         allAppsArray.push(solewriter);        // solewriter
 
-        // Full Video Player app
+        // 2. XLSX Editor app
+        var xlsxeditor = new AppItemInfo();
+        xlsxeditor.slideBgColor = "#1F7347";
+        xlsxeditor.appName      = "XLSX Editor";
+        xlsxeditor.iconBaseName = "xlsx_editor_icon";
+        xlsxeditor.masUrl       = "https://apple.co/3B5X942";
+        xlsxeditor.intro        = "Fully functional, easy-to-use spreadsheet editor for Mac";
+        xlsxeditor.desc         = "XLSX Editor is a spreadsheet editor for Mac that is based on OpenOffice and LibreOffice. XLSX Editor is a powerful, quick, fully functional, easy-to-use spreadsheet editor.";
+        xlsxeditor.srcUrl       = "https://soleoffice.com/opensource/zips/XLSXEditor.zip";
+
+        allAppsArray.push(xlsxeditor);
+    
+        // 3. Full Video Player app
         var video_player = new AppItemInfo();
         video_player.slideBgColor = "#303030";
         video_player.appName      = "Full Video Player";
         video_player.iconBaseName = "video_player_icon";
         video_player.masUrl       = "https://apple.co/42ii6Ck";
-        video_player.intro        = "Feature-rich media player designed for your Mac";
-        video_player.desc         = "The ultimate media player that can handle almost any file type, including 4K/1080P/720P HD videos and normal/lossless audio.";
+        video_player.intro        = "Feature-rich media player designed for Mac";
+        video_player.desc         = "Full Video Player is a feature-rich media player for Mac that is based on iina. The ultimate media player that can handle almost any file type, including 4K/1080P/720P HD videos and normal/lossless audio.";
         video_player.srcUrl       = "https://soleoffice.com/opensource/zips/FullVideoPlayer.zip";
 
         // Add to array
