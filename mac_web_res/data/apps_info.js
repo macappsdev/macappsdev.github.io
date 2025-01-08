@@ -227,8 +227,32 @@ function getAllAppsInfoArray()
         xlsxeditor.srcUrl       = "https://soleoffice.com/opensource/zips/XLSXEditor.zip";
 
         allAppsArray.push(xlsxeditor);
-    
-        // 3. Full Video Player app
+
+        // 3. Slides Editor app
+        var slideseditor = new AppItemInfo();
+        slideseditor.slideBgColor = "#CC502E";
+        slideseditor.appName      = "Slides Editor";
+        slideseditor.iconBaseName = "slides_editor_icon";
+        slideseditor.masUrl       = "https://apple.co/3PughMS";
+        slideseditor.intro        = "Streamlined and full-featured presentation editor for Mac";
+        slideseditor.desc         = "Slides Editor is a presentation editor for Mac that is based on OpenOffice and LibreOffice. Slides Editor is a powerful, quick, fully functional, easy-to-use presentation editor.";
+        slideseditor.srcUrl       = "https://soleoffice.com/opensource/zips/SlidesEditor.zip";
+
+        allAppsArray.push(slideseditor);
+
+        // 4. Full Office app
+        var fulloffice = new AppItemInfo();
+        fulloffice.slideBgColor = "#895B06";
+        fulloffice.appName      = "Full Office";
+        fulloffice.iconBaseName = "full_office_icon";
+        fulloffice.masUrl       = "https://apple.co/3DMsN7U";
+        fulloffice.intro        = "Powerful and full-featured office suite software for Mac";
+        fulloffice.desc         = "Full Office is a powerful office suite for Mac that is based on OpenOffice and LibreOffice. Full Office can create, open, and edit OpenOffice document files.";
+        fulloffice.srcUrl       = "https://soleoffice.com/opensource/zips/FullOffice.zip";
+
+        allAppsArray.push(fulloffice);
+
+        // 5. Full Video Player app
         var video_player = new AppItemInfo();
         video_player.slideBgColor = "#303030";
         video_player.appName      = "Full Video Player";
