@@ -21,6 +21,11 @@ var gMaxAvailableAppsCountForAppShowcase = 9999; // Max app count for show case 
  */
 /* exported getAllAppsInfoArray */
 
+/*
+ * getPrivacyPolicyServicesNamesString()
+ * Return a string that contains all of the team names.
+ */
+/* exported getPrivacyPolicyServicesNamesString */
 
 /* 
  * generateAllAppsHtmlForProducts()
@@ -60,6 +65,7 @@ function AppItemInfo()
     
     // Properties
     this.appName      = "";     // App Name
+    this.appTeamName  = "";     // App Team Name (defaults to "<App Name> Team")
     this.iconBaseName = "";     // The app icon base name, e.g. set to "abc", you must provide a "abc.png" file.
     this.masUrl       = "";     // Mac App Store URL
     this.intro        = "";     // A very short line words that descript this app 
@@ -71,7 +77,15 @@ function AppItemInfo()
     this.getAppName = function() {
         return this.appName;
     };
-    
+
+    this.getAppTeamName = function() {
+        if (this.appTeamName) {
+            return this.appTeamName;
+        }
+
+        return this.appName + " Team";
+    };
+
     this.getDownloadOnMASUrl = function() 
     {
         var returnUrl = this.masUrl;    // For windows, Only need to return the mas URL.
@@ -237,6 +251,36 @@ function getAllAppsInfoArray()
     return gCachedAllAppsArray;
 }
 
+/*
+ * getPrivacyPolicyServicesNamesString()
+ * Return a string that contains all the team names.
+ */
+function getPrivacyPolicyServicesNamesString()
+{
+    "use strict";
+
+    // return value
+    var teamNamesString = '"SoleOffice", "SoleOffice Team", "SoleWriter", "SoleWriter Team",';
+
+    // generate html codes for all the products
+    var allAppsArray = getAllAppsInfoArray();
+    for (var idx = 0; idx < allAppsArray.length; idx++)
+    {
+        var appItemInfo       = allAppsArray[idx];
+        var appName           = appItemInfo.getAppName();
+        var appTeamName       = appItemInfo.getAppTeamName();
+
+        // Compose team names to a string
+        teamNamesString += ' "' + appName + '",';
+        teamNamesString += ' "' + appTeamName + '",';
+    }
+
+    // Append we us and our
+    teamNamesString += ' "we", "us" or "our"';
+
+    // Returns the value
+    return teamNamesString;
+}
 
 /*
  * slideshow section

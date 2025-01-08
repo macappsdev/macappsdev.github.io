@@ -96,7 +96,15 @@ body {
 
 </style>
 <!-- Ending of css -->
-    
+
+<!-- my javascript -->
+<script src="mac_web_res/data/apps_info.js" type="text/javascript"></script>
+<script type="text/javascript">
+    /* Suppress some warnings for jshint, which affected all scripts in this file. */
+    /* jshint eqeqeq: false, evil: true */
+    /* globals getPrivacyPolicyServicesNamesString */
+</script>
+
 </head>
 
 <body>
@@ -108,7 +116,12 @@ body {
             <h1>Privacy Policy</h1>
 
             <h2>Overview</h2>
-            <p>Regarding the Services: SoleOffice Technology Labs("SoleOffice", "SoleOffice Team", "SoleWriter", "SoleWriter Team", "Docx Editor", "Docx Editor Team", "XLSX Editor", "XLSX Editor Team", "Full Video Player", "Full Video Player Team", "we", "us" or "our") is the Data Controller within the meaning of the General Data Protection Regulation (<b>"GDPR"</b>).</p>
+            <p>Regarding the Services: SoleOffice Technology Labs (
+            <script type="text/javascript">
+                var ppTeamNamesString = getPrivacyPolicyServicesNamesString();
+                document.write(ppTeamNamesString);
+            </script>
+) is the Data Controller within the meaning of the General Data Protection Regulation (<b>"GDPR"</b>).</p>
 
             <p>This Privacy Policy describes how your personal information is handled in the applications published in or out of the Mac App Store by us.</p>
             <br/>
